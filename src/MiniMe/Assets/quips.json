@@ -1,0 +1,134 @@
+{
+  "coding": {
+    "ar": [
+      "يا عم قوم اشرب مية، الباج مش هيطير!",
+      "كفاية كود شوية، عينيك هتعمل Error 404!",
+      "عملت Git Commit ولا مستني الكهرباء تقطع؟",
+      "دوس Ctrl+Shift+S عشان أبص على الكود وألحقك!"
+    ],
+    "en": [
+      "Go drink some water, that bug isn't going anywhere!",
+      "Did you commit your code or are you living dangerously?",
+      "Press Ctrl+Shift+S and let me scan your code for bugs!"
+    ]
+  },
+  "video_social": {
+    "ar": [
+      "ساب اللي وراه وقاعد على يوتيوب!",
+      "فيديو واحد كمان وهنقوم نشتغل، صح؟ كدبة كل يوم!",
+      "التاسكات بتعيط في الزاوية وأنت بتتفرج!"
+    ],
+    "en": [
+      "Ignoring all your tasks to watch videos, classic!",
+      "Just one more video, right? That's what you said an hour ago.",
+      "Your to-do list is crying in the corner right now."
+    ]
+  },
+  "browser": {
+    "ar": [
+      "فاتح 47 تاب والرامات بتستغيث!",
+      "اقفل كام تاب يا عم، الجهاز هيطير من المروحة!",
+      "دبل كليك عليا لو عايزني ألخصلك اللي على الشاشة!"
+    ],
+    "en": [
+      "47 browser tabs open and your RAM is begging for mercy!",
+      "Close a few tabs before your laptop takes off like a jet."
+    ]
+  },
+  "slap": {
+    "ar": [
+      "إيه الضرب ده يا عم أنا عملتلك إيه؟!",
+      "آي! راسي بتلف... شايف نجوم الظهر!",
+      "كده؟ طب والله لآجي أسرقلك الماوس دلوقتي!"
+    ],
+    "en": [
+      "Hey!! What did I even do to you?!",
+      "Ow! Everything is spinning... I see stars!",
+      "Oh, so we're choosing violence? Watch your mouse!"
+    ]
+  },
+  "drag": {
+    "ar": [
+      "نزلني يا عم أنا مش كيس بطاطس!",
+      "ويييييييي!! هاتقعني!",
+      "سيب قفايا، هدومي هتبوظ!"
+    ],
+    "en": [
+      "Put me down! I'm not a sack of potatoes!",
+      "Weeeeeee!! Don't drop me!",
+      "Hey, watch the collar!"
+    ]
+  },
+  "climb": {
+    "ar": [
+      "هقعد هنا فوق أراقبك وأنت شغال!",
+      "المنظر من فوق النافذة دي تحفة!",
+      "أحسن كرسي في الديسكتوب كله!"
+    ],
+    "en": [
+      "I'll just sit up here and supervise your work.",
+      "Great view from up on this titlebar!",
+      "Best seat on the entire desktop!"
+    ]
+  },
+  "chaos_shove": {
+    "ar": [
+      "وسع كده، النافذة دي واخدة مكاني!",
+      "هوبا! زقيناها 120 بكسل عشان تفتح نفسك!"
+    ],
+    "en": [
+      "Make room! Shoving this window out of my runway!",
+      "Heave-ho! Just redecorating your desktop!"
+    ]
+  },
+  "chaos_shake": {
+    "ar": [
+      "زلزال في النافذة! فوق يا عم أنت نمت؟!",
+      "هزتها لك عشان الكود يصحى!"
+    ],
+    "en": [
+      "Window earthquake! Wake up over there!",
+      "Giving your app a quick shake to wake it up!"
+    ]
+  },
+  "chaos_resize": {
+    "ar": [
+      "النافذة دي كبيرة أوي... هعملها دايت سريع!",
+      "ضغطتلك النافذة شوية عشان تشوف الديسكتوب!"
+    ],
+    "en": [
+      "This window is way too wide—quick squish!",
+      "Resized it for you, looks way cuter now!"
+    ]
+  },
+  "chaos_mouse": {
+    "ar": [
+      "هات الماوس ده شوية، دوري ألعب! ههه!",
+      "الماوس ده بتاعي دلوقتي، لو شاطر الحقه!"
+    ],
+    "en": [
+      "Yoink! My turn with the cursor—catch me if you can!",
+      "Hijacking your mouse for a sec, hehe!"
+    ]
+  },
+  "chaos_minimize": {
+    "ar": [
+      "أوبس! النافذة اختفت... مش أنا والله!",
+      "خبيتها لك عشان تاخد بريك!"
+    ],
+    "en": [
+      "Oops! That window vanished... definitely wasn't me!",
+      "Hid that window for you—you needed a break!"
+    ]
+  },
+  "idle": {
+    "ar": [
+      "دوس Ctrl+Shift+S عشان أشوف الشاشة وأساعدك، أو دبل كليك نتكلم!",
+      "الجو هادي أوي... ما تيجي نعمل شوية فوضى؟"
+    ],
+    "en": [
+      "Press Ctrl+Shift+S for an instant AI screen scan, or double-click to chat!",
+      "Too quiet around here... feels like chaos time."
+    ]
+  }
+}
