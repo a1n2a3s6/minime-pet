@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" width="1200" height="430">
+  <defs>
+    <linearGradient id="wall" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090D16" />
+      <stop offset="50%" stop-color="#111C33" />
+      <stop offset="100%" stop-color="#0A1922" />
+    </linearGradient>
+    <style>
+      .pushed-win { animation: winShove 8s ease-in-out infinite; }
+      .pet-chaos { animation: petAct 8s ease-in-out infinite; }
+      .cursor-stolen { animation: mouseSteal 8s ease-in-out infinite; }
+      .roast-bubble { animation: bubbleShow 8s ease-in-out infinite; }
+      @keyframes winShove {
+        0%, 28% { transform: translateX(0px); }
+        38% { transform: translateX(42px); }
+        44% { transform: translateX(36px); }
+        52% { transform: translateX(68px); }
+        78% { transform: translateX(68px); }
+        92%, 100% { transform: translateX(0px); }
+      }
+      @keyframes petAct {
+        0% { transform: translate(120px, 286px); }
+        22% { transform: translate(236px, 286px); }
+        38% { transform: translate(278px, 286px); }
+        52% { transform: translate(304px, 286px); }
+        62% { transform: translate(490px, 52px); }
+        82% { transform: translate(490px, 52px); }
+        94%, 100% { transform: translate(120px, 286px); }
+      }
+      @keyframes mouseSteal {
+        0%, 60% { transform: translate(780px, 210px); }
+        74% { transform: translate(960px, 120px); }
+        88%, 100% { transform: translate(780px, 210px); }
+      }
+      @keyframes bubbleShow {
+        0%, 24% { opacity: 0; }
+        30%, 84% { opacity: 1; }
+        92%, 100% { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  
+  <rect width="1200" height="430" rx="18" fill="url(#wall)" stroke="#1E293B" stroke-width="2" />
+
+  
+  <g transform="translate(24, 20)">
+    <rect width="290" height="30" rx="8" fill="#0F172A" stroke="#334155" />
+    <circle cx="16" cy="15" r="5" fill="#EF4444" />
+    <text x="30" y="19" fill="#E2E8F0" font-family="Consolas, monospace" font-size="12" font-weight="700">LIVE WIN32 CHAOS SIMULATION (60FPS)</text>
+  </g>
+
+  
+  <g class="pushed-win">
+    <rect x="295" y="106" width="520" height="250" rx="12" fill="#0D1117" stroke="#30363D" stroke-width="2" />
+    
+    <rect x="295" y="106" width="520" height="34" rx="12" fill="#161B22" />
+    <rect x="295" y="128" width="520" height="12" fill="#161B22" />
+    <circle cx="316" cy="123" r="5" fill="#EF4444" />
+    <circle cx="334" cy="123" r="5" fill="#F59E0B" />
+    <circle cx="352" cy="123" r="5" fill="#10B981" />
+    <text x="374" y="127" fill="#8B949E" font-family="Consolas, monospace" font-size="12">Program.cs — Visual Studio Code</text>
+    
+    <g font-family="Consolas, monospace" font-size="13">
+      <text x="320" y="172" fill="#FF7B72">using</text><text x="366" y="172" fill="#79C0FF">MiniMe.Win32Interop;</text>
+      <text x="320" y="200" fill="#8B949E">// Watching foreground window &amp; shoving apps...</text>
+      <text x="320" y="228" fill="#D2A8FF">SetWindowPos</text><text x="418" y="228" fill="#E6EDF3">(hwnd, x + 42, y, SWP_NOSIZE);</text>
+      <text x="320" y="256" fill="#7EE787">Brain.Roast</text><text x="408" y="256" fill="#A5D6FF">("يا عم سيب الكود شوية!");</text>
+      <text x="320" y="284" fill="#FFA657">Physics.ApplyGravity</text><text x="480" y="284" fill="#E6EDF3">(velocityX, velocityY);</text>
+    </g>
+    <rect x="652" y="316" width="144" height="24" rx="6" fill="#10B981" fill-opacity="0.15" stroke="#10B981" stroke-opacity="0.5" />
+    <text x="724" y="332" text-anchor="middle" fill="#34D399" font-family="Consolas, monospace" font-size="11" font-weight="700">SetWindowPos() LIVE</text>
+  </g>
+
+  
+  <g transform="translate(915, 70)">
+    <rect width="258" height="286" rx="12" fill="#0B1120" stroke="#1E293B" stroke-width="1.5" />
+    <text x="18" y="30" fill="#38BDF8" font-family="Consolas, monospace" font-size="13" font-weight="700">WIN32 API TELEMETRY</text>
+    <line x1="18" y1="42" x2="240" y2="42" stroke="#1E293B" />
+    <text x="18" y="70" fill="#94A3B8" font-family="Consolas, monospace" font-size="12">ACTIVE APP:</text>
+    <text x="18" y="90" fill="#F8FAFC" font-family="Consolas, monospace" font-size="12" font-weight="700">Visual Studio Code</text>
+    <text x="18" y="124" fill="#94A3B8" font-family="Consolas, monospace" font-size="12">CURRENT STATE:</text>
+    <text x="18" y="144" fill="#FBBF24" font-family="Consolas, monospace" font-size="12" font-weight="700">CHAOS // WINDOW PUSH</text>
+    <text x="18" y="178" fill="#94A3B8" font-family="Consolas, monospace" font-size="12">MEMORY FOOTPRINT:</text>
+    <text x="18" y="198" fill="#34D399" font-family="Consolas, monospace" font-size="13" font-weight="700">34.2 MB (.NET 8 WPF)</text>
+    <text x="18" y="232" fill="#94A3B8" font-family="Consolas, monospace" font-size="12">BOSS MODE HOTKEY:</text>
+    <rect x="18" y="244" width="150" height="26" rx="6" fill="#1E293B" />
+    <text x="93" y="261" text-anchor="middle" fill="#E2E8F0" font-family="Consolas, monospace" font-size="12" font-weight="700">Ctrl + Shift + H</text>
+  </g>
+
+  
+  <g class="pet-chaos">
+    <g class="roast-bubble" transform="translate(-85, -56)">
+      <rect width="235" height="36" rx="10" fill="#111827" stroke="#FBBF24" stroke-width="1.5" />
+      <text x="117" y="23" text-anchor="middle" fill="#FEF08A" font-family="&#39;Segoe UI&#39;, sans-serif" font-size="13" font-weight="700">وسّع كده! النافذة دي بتاعتي 😈</text>
+    </g>
+    
+    <rect x="14" y="40" width="38" height="30" rx="10" fill="#10B981" />
+    <rect x="8" y="4" width="50" height="42" rx="18" fill="#FDE68A" stroke="#0F172A" stroke-width="3" />
+    <path d="M7 22 C7 0, 59 0, 59 22 Z" fill="#0F172A" />
+    <circle cx="24" cy="28" r="3.5" fill="#0F172A" />
+    <circle cx="42" cy="28" r="3.5" fill="#0F172A" />
+    <path d="M29 36 Q33 40 38 35" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  
+  <g class="cursor-stolen">
+    <polygon points="0,0 0,22 6,17 11,26 15,24 10,15 17,15" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.5" />
+  </g>
+
+  
+  <rect x="2" y="382" width="1196" height="46" rx="0" fill="#0B1120" opacity="0.95" />
+  <line x1="2" y1="382" x2="1198" y2="382" stroke="#1E293B" />
+  <g transform="translate(520, 393)">
+    <rect x="0" y="0" width="24" height="24" rx="5" fill="#38BDF8" />
+    <rect x="36" y="0" width="24" height="24" rx="5" fill="#1E293B" stroke="#334155" />
+    <rect x="72" y="0" width="24" height="24" rx="5" fill="#10B981" />
+    <rect x="108" y="0" width="24" height="24" rx="5" fill="#F59E0B" />
+  </g>
+  <text x="1115" y="410" fill="#94A3B8" font-family="&#39;Segoe UI&#39;, sans-serif" font-size="12">06:30 AM</text>
+</svg>
