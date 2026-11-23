@@ -1,0 +1,138 @@
+{
+  "coding": {
+    "ar": [
+      "يا عم قوم اشرب مية، الباج مش هيطير!",
+      "كفاية كود شوية، عينيك هتعمل Error 404!",
+      "هو الكود ده شغال بالبركة ولا إيه؟",
+      "عملت Git Commit ولا مستني الكهرباء تقطع؟",
+      "سمعت إن السطر اللي بوظ الدنيا فوق في سطر 12...",
+      "بصراحة الكود نضيف... لحد ما تعمل Run!"
+    ],
+    "en": [
+      "Go drink some water, that bug isn't going anywhere!",
+      "Did you commit your code or are you living dangerously?",
+      "Pretty sure a missing semicolon is laughing at you right now.",
+      "Take a 2-minute stretch before your posture turns into a shrimp!",
+      "Looks clean... until you actually hit Run."
+    ]
+  },
+  "video_social": {
+    "ar": [
+      "ساب اللي وراه وقاعد على يوتيوب!",
+      "فيديو واحد كمان وهنقوم نشتغل، صح؟ كدبة كل يوم!",
+      "التاسكات بتعيط في الزاوية وأنت بتتفرج!",
+      "شغلني معاك يا عم، إيه اللي بنتفرج عليه ده؟",
+      "لو الضحك بيجيب فلوس كنا بقينا مليونيرات من بدري!"
+    ],
+    "en": [
+      "Ignoring all your tasks to watch videos, classic!",
+      "Just one more video, right? That's what you said an hour ago.",
+      "Your to-do list is crying in the corner right now.",
+      "Move over, let me watch too!"
+    ]
+  },
+  "browser": {
+    "ar": [
+      "فاتح 47 تاب والرامات بتستغيث!",
+      "اقفل كام تاب يا عم، الجهاز هيطير من المروحة!",
+      "بتدور على إيه؟ قولي وأنا أفتيلك!",
+      "البحث ده شكله هياخدنا في سكة تانية خالص..."
+    ],
+    "en": [
+      "47 browser tabs open and your RAM is begging for mercy!",
+      "Close a few tabs before your laptop takes off like a jet.",
+      "Searching for answers or just procrastinating professionally?"
+    ]
+  },
+  "slap": {
+    "ar": [
+      "إيه الضرب ده يا عم أنا عملتلك إيه؟!",
+      "آي! راسي بتلف... شايف نجوم الظهر!",
+      "كده؟ طب والله لآجي أزقلك النوافذ بتاعتك!",
+      "حرام عليك أنا صغير، ارحمني شوية!",
+      "دماغي! لو وقعت من الشاشة هيبقى ذنبي في رقبتك!"
+    ],
+    "en": [
+      "Hey!! What did I even do to you?!",
+      "Ow! Everything is spinning... I see stars!",
+      "Oh, so we're choosing violence today? Watch your windows!",
+      "Easy! I'm just a tiny desktop buddy!"
+    ]
+  },
+  "drag": {
+    "ar": [
+      "نزلني يا عم أنا مش كيس بطاطس!",
+      "ويييييييي!! هاتقعني!",
+      "سيب قفايا، هدومي هتبوظ!",
+      "رايح بيا فين؟ أنا بخاف من المرتفعات!"
+    ],
+    "en": [
+      "Put me down! I'm not a sack of potatoes!",
+      "Weeeeeee!! Don't drop me!",
+      "Hey, watch the collar! You're wrinkling my fit!",
+      "Where are we going?! I'm afraid of heights!"
+    ]
+  },
+  "climb": {
+    "ar": [
+      "هقعد هنا فوق أراقبك وأنت شغال!",
+      "المنظر من فوق النافذة دي تحفة!",
+      "كمل شغلك، ملكش دعوة بيا أنا قاعد مؤدب.",
+      "أحسن كرسي في الديسكتوب كله!"
+    ],
+    "en": [
+      "I'll just sit up here and supervise your work.",
+      "Great view from up on this titlebar!",
+      "Don't mind me, just judging your typing speed.",
+      "Best seat on the entire desktop!"
+    ]
+  },
+  "chaos_push": {
+    "ar": [
+      "وسع كده، النافذة دي واخدة مكاني!",
+      "هوبا! زقيناها شوية عشان تفتح نفسك!",
+      "مين حط النافذة دي هنا؟ بتسد الطريق!"
+    ],
+    "en": [
+      "Make room! This window is totally in my spot!",
+      "Heave-ho! Just redecorating your desktop!",
+      "Excuse me, window, you're blocking my runway."
+    ]
+  },
+  "chaos_mouse": {
+    "ar": [
+      "هات الماوس ده شوية، دوري ألعب!",
+      "ههه! لو شاطر الحقه!",
+      "الماوس ده بتاعي دلوقتي، باي باي!"
+    ],
+    "en": [
+      "Yoink! My turn to play with the cursor!",
+      "Hehe, catch it if you can!",
+      "Borrowing your mouse for a second—bye!"
+    ]
+  },
+  "chaos_minimize": {
+    "ar": [
+      "أوبس! النافذة اختفت... مش أنا والله!",
+      "كفاية النافذة دي، خبيتها لك عشان ترتاح!"
+    ],
+    "en": [
+      "Oops! That window vanished... definitely wasn't me!",
+      "Hid that window for you—you needed a break anyway!"
+    ]
+  },
+  "idle": {
+    "ar": [
+      "يا عم اتكلم معايا، دبل كليك عليا لو زهقان!",
+      "الجو هنا هادي أوي... ما تيجي نعمل شوية شقاوة؟",
+      "أنا موجود لو احتجت أي دعم معنوي!",
+      "الديسكتوب ده محتاج شوية حركة!"
+    ],
+    "en": [
+      "Double-click me if you want to chat!",
+      "Too quiet around here... feels like chaos time.",
+      "Just vibing on your taskbar, cheering you on!",
+      "Remember to blink and hydrate!"
+    ]
+  }
+}
