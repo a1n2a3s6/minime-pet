@@ -1,164 +1,196 @@
 <a id="readme-top"></a>
 
-<!-- HERO ANIMATED BANNER -->
+<!-- CUSTOM 60FPS ANIMATED HERO SCENE -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:111827,50:10B981,100:0EA5E9&height=230&section=header&text=MiniMe%20Pet&fontSize=58&fontColor=ffffff&fontAlignY=38&desc=Your%20Chaotic%20Miniature%20Self%20Living%20on%20Windows%20(C%23%20.NET%208%20%2B%20Win32%20API)&descSize=17&descAlignY=63&animation=fadeIn" width="100%" alt="MiniMe Pet Banner" />
-
-  <!-- ANIMATED TYPING TAGLINE -->
-  <a href="https://github.com/a1n2a3s6/minime-pet">
-    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=17&duration=2600&pause=900&color=10B981&center=true&vCenter=true&width=760&lines=Turn+YOURSELF+into+a+chaotic+Windows+Desktop+Buddy+%F0%9F%91%BE;Built-in+AI+Sprite+Prompt+%2B+Chroma+Key+%2300FF00+Auto-Slicer+%E2%9C%82%EF%B8%8F;Climbs+your+windows%2C+shoves+apps+%26+steals+your+mouse+via+Win32+API+%F0%9F%98%88;Roasts+you+in+Egyptian+Arabic+%26+English+%E2%80%94+Offline+or+Gemini%2FGroq+AI+%F0%9F%92%AC" alt="MiniMe Typing Demo" />
+  <a href="https://github.com/a1n2a3s6/minime-pet/releases">
+    <img src="./assets/hero.svg" width="100%" alt="MiniMe Pet — Animated Hero Banner" />
   </a>
 
   <br />
+  <br />
 
-  <!-- TECH & PLATFORM BADGES -->
+  <!-- LIVE DYNAMIC STATUS STRIP -->
   <p>
-    <img src="https://img.shields.io/badge/365%20Days%20Challenge-Day%2011%2F365-10B981?style=for-the-badge" alt="Day 11/365" />
-    <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows 10/11" />
-    <img src="https://img.shields.io/badge/C%23-.NET%208%20WPF-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt="C# .NET 8 WPF" />
-    <img src="https://img.shields.io/badge/Win32-Native%20API-0F172A?style=for-the-badge" alt="Win32 API" />
-    <img src="https://img.shields.io/badge/RAM-~35MB%20Ultra--Light-059669?style=for-the-badge" alt="Ultra Light RAM" />
-  </p>
-
-  <!-- LIVE GITHUB REPOSITORY STATS -->
-  <p>
+    <a href="https://github.com/a1n2a3s6/minime-pet/releases">
+      <img src="https://img.shields.io/github/v/release/a1n2a3s6/minime-pet?style=for-the-badge&color=10B981&label=DOWNLOAD%20.EXE&logo=windows&logoColor=white" alt="Download Windows EXE" />
+    </a>
     <a href="https://github.com/a1n2a3s6/minime-pet/stargazers">
       <img src="https://img.shields.io/github/stars/a1n2a3s6/minime-pet?style=for-the-badge&color=F59E0B&logo=github" alt="GitHub Stars" />
     </a>
-    <a href="https://github.com/a1n2a3s6/minime-pet/releases">
-      <img src="https://img.shields.io/github/v/release/a1n2a3s6/minime-pet?style=for-the-badge&color=10B981&logo=github" alt="Latest Release" />
-    </a>
-    <a href="https://github.com/a1n2a3s6/minime-pet/commits/main">
-      <img src="https://img.shields.io/github/last-commit/a1n2a3s6/minime-pet?style=for-the-badge&color=06B6D4&logo=git&logoColor=white" alt="Last Commit" />
+    <a href="https://github.com/a1n2a3s6/minime-pet/network/members">
+      <img src="https://img.shields.io/github/forks/a1n2a3s6/minime-pet?style=for-the-badge&color=0EA5E9&logo=github" alt="GitHub Forks" />
     </a>
     <img src="https://img.shields.io/badge/License-MIT-6366F1?style=for-the-badge" alt="MIT License" />
   </p>
 
-  <!-- QUICK NAVIGATION BAR -->
+  <!-- SLEEK JUMP NAV -->
   <p>
-    <a href="#-how-the-custom-skin-wizard-works"><strong>🎨 Custom Skin Setup</strong></a> &nbsp;│&nbsp;
-    <a href="#-desktop-chaos--win32-powers"><strong>😈 Chaos Powers</strong></a> &nbsp;│&nbsp;
-    <a href="#-architecture"><strong>🏗️ Architecture</strong></a> &nbsp;│&nbsp;
-    <a href="#-download--install"><strong>📦 Download .EXE</strong></a> &nbsp;│&nbsp;
-    <a href="#-shortcuts--controls"><strong>⌨️ Controls</strong></a>
+    <a href="#-live-desktop-chaos-preview"><strong>🎬 Live Preview</strong></a> &nbsp;│&nbsp;
+    <a href="#-the-60-second-skin-pipeline"><strong>✂️ Chroma Key Pipeline</strong></a> &nbsp;│&nbsp;
+    <a href="#-bento-feature-showcase"><strong>⚡ Powers</strong></a> &nbsp;│&nbsp;
+    <a href="#-under-the-hood-win32--state-machine"><strong>🧠 Under the Hood</strong></a> &nbsp;│&nbsp;
+    <a href="#-get-minime-windows-10--11"><strong>📦 Download</strong></a>
   </p>
 </div>
 
 ---
 
 > [!IMPORTANT]
-> **Zero heavy 3D GPUs. Zero cloud subscriptions. Pure native Windows chaos.**
-> **MiniMe Pet** is an ultra-lightweight **C# (.NET 8 + WPF)** Desktop Buddy that lives always-on-top over every Windows app, interacts with your real desktop windows via **Win32 API**, roasts you based on what you're doing (in Egyptian Arabic or English), and lets you turn **your own photo** into a custom animated 8-frame skin in 60 seconds using our built-in **AI Prompt Generator + Chroma Key (`#00FF00`) Auto-Slicer**.
+> **Not another bloated Electron pet.** **MiniMe Pet** is engineered natively in **C# (.NET 8 + WPF + direct `user32.dll` Win32 P/Invoke)** to consume **~35 MB RAM**, run at a locked **60 FPS** always-on-top over every Windows app, turn **your own photo** into a custom animated 8-state character via green-screen auto-slicing, and physically interact with your desktop windows.
 
 ---
 
-## 🎨 How the Custom Skin Wizard Works
+## 🎬 Live Desktop Chaos Preview
 
-Instead of bloating the app with gigabytes of local AI models, **MiniMe** separates image generation from runtime performance:
+Watch how **MiniMe** operates live on your desktop — reading your active foreground app (`GetForegroundWindow`), physically shoving non-maximized windows (`SetWindowPos`), climbing titlebars (`GetWindowRect`), and playfully dragging your cursor (`SetCursorPos`):
 
-1. **Pick Your Style:** Choose **Chibi Anime**, **Pixel Art**, or **2D Cartoon** inside the Setup Wizard.
-2. **Copy the Magic Prompt:** MiniMe gives you a precision-engineered prompt requesting a **4×2 Sprite Sheet (8 poses)** on a pure `#00FF00` green screen. Paste it with your selfie into any AI image generator.
-3. **Upload & Auto-Slice:** Drop the image into MiniMe — the built-in **Chroma Key Engine** strips the green screen cleanly (with spill suppression) and slices all 8 frames automatically!
+<div align="center">
+  <img src="./assets/desktop-demo.svg" width="100%" alt="MiniMe Live Windows 11 Chaos Simulation" />
+</div>
 
-| Row | Col 1 | Col 2 | Col 3 | Col 4 |
-| :---: | :---: | :---: | :---: | :---: |
-| **Row 1** | 🧍 `Idle` | 🚶 `Walk 1` | 🏃 `Walk 2` | 😈 `Troll / Laugh` |
-| **Row 2** | 💫 `Hit / Dizzy` | 🤏 `Dragged` | 🪑 `Sitting` | 😴 `Sleeping` |
+---
+
+## ✂️ The 60-Second Skin Pipeline
+
+AI image generators fail at real transparency (drawing fake gray checkerboards instead). **MiniMe** solves this with a built-in **AI Prompt Wizard + Real-Time `#00FF00` Chroma Key Engine** with edge spill suppression:
+
+<div align="center">
+  <img src="./assets/chroma-pipeline.svg" width="100%" alt="MiniMe Chroma Key & 4x2 Auto-Slicer Pipeline" />
+</div>
+
+<details>
+<summary><b>📋 View the 8-Frame Sprite Sheet Specification &amp; Built-In Fallback</b></summary>
+
+| Grid Slot | State Enum | Triggered When |
+| :---: | :--- | :--- |
+| `(Row 1, Col 1)` | `Idle` | Standing on taskbar or window titlebar with breathing motion |
+| `(Row 1, Col 2)` | `Walk1` | Left-foot walk cycle frame (auto-mirrored when walking left) |
+| `(Row 1, Col 3)` | `Walk2` | Right-foot walk cycle frame |
+| `(Row 1, Col 4)` | `Troll` | Delivering a context-aware roast, pushing a window, or stealing the mouse |
+| `(Row 2, Col 1)` | `Hit` | Slapped or bouncing off walls/taskbar with spinning dizzy stars |
+| `(Row 2, Col 2)` | `Dragged` | Picked up by the collar with the mouse cursor before being flung |
+| `(Row 2, Col 3)` | `Sitting` | Perched on top of an active app's titlebar dangling its legs |
+| `(Row 2, Col 4)` | `Sleeping` | Resting quietly in the corner during **Boss / Focus Mode (`Ctrl+Shift+H`)** |
 
 > [!TIP]
-> Don't have a custom sprite sheet yet? **MiniMe ships with a built-in animated Chibi character** so you can launch and enjoy it immediately out of the box!
+> **Works Out of the Box:** MiniMe ships with a built-in procedurally drawn animated Chibi character, so you can launch it immediately and swap in your own face whenever you want!
+
+</details>
 
 ---
 
-## 😈 Desktop Chaos & Win32 Powers
+## ⚡ Bento Feature Showcase
 
 <table>
   <tr>
-    <td width="50%" valign="top">
-      <h3>🧠 Context-Aware Trolling</h3>
-      <p>Reads your active foreground window (<code>GetForegroundWindow</code>). Coding in VS Code for hours? It tells you to drink water. Procrastinating on YouTube? It calls you out in hilarious <b>Egyptian Arabic</b> or English speech bubbles.</p>
+    <td width="33%" valign="top">
+      <h3>🧠 Context-Aware Roasts</h3>
+      <p>Inspects your active foreground window every 20–45s. Coding too long in VS Code? Bingeing YouTube? MiniMe drops witty <b>Egyptian Arabic</b> or <b>English</b> speech bubbles right on screen.</p>
+      <code>GetForegroundWindow()</code>
     </td>
-    <td width="50%" valign="top">
+    <td width="33%" valign="top">
+      <h3>😈 Toggleable Chaos Mode</h3>
+      <p>Shoves open windows sideways, shakes them playfully, chases your cursor for 1.2s, or sneakily hits minimize. Every chaos behavior can be toggled independently in Settings.</p>
+      <code>SetWindowPos() • SetCursorPos()</code>
+    </td>
+    <td width="33%" valign="top">
+      <h3>🏀 60fps Slap &amp; Throw Physics</h3>
+      <p>Single-click to slap MiniMe across the monitor with gravity, wall bounce, and dizzy stars — or grab it by the collar and fling it with real release velocity.</p>
+      <code>CompositionTarget.Rendering</code>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top">
+      <h3>🤖 Offline + Optional AI Brain</h3>
+      <p>Runs <b>100% offline</b> with a curated JSON quip library — or drop in a free <b>Gemini Flash</b> / <b>Groq</b> API key to unlock dynamic roasts and double-click mini-bubble chat.</p>
+      <code>Offline JSON • Gemini • Groq</code>
+    </td>
+    <td width="33%" valign="top">
       <h3>🧗 Real Window Climber</h3>
-      <p>Locates open non-maximized windows via <code>GetWindowRect</code>, leaps up onto their titlebar, and sits there dangling its legs while watching you work.</p>
+      <p>Scans visible non-maximized windows, calculates their exact screen bounds, hops onto their top edge, and sits there watching you work.</p>
+      <code>EnumWindows() • GetWindowRect()</code>
     </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>💥 Win32 Chaos Mode (Toggleable)</h3>
-      <p>Physically shoves/shakes your open windows (<code>SetWindowPos</code>), chases and playfully steals your mouse cursor for a second (<code>SetCursorPos</code>), or sneakily minimizes a window and hides.</p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>🏀 Real 2D Slap &amp; Throw Physics</h3>
-      <p>Click fast to <b>slap</b> MiniMe across the screen with gravity and taskbar bounce (complete with spinning dizzy stars!), or grab it by the collar and <b>fling</b> it anywhere.</p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🤖 Offline Quips + Optional AI Chat</h3>
-      <p>Works 100% offline with a rich categorized JSON quip pack — or plug in a free <b>Gemini Flash</b> / <b>Groq</b> API key to unlock live context-aware roasts and double-click mini-bubble chat!</p>
-    </td>
-    <td width="50%" valign="top">
+    <td width="33%" valign="top">
       <h3>🤫 Instant Boss / Focus Mode</h3>
-      <p>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> from any app or game to put MiniMe to sleep in the corner and pause all Chaos actions instantly.</p>
+      <p>Gaming, recording, or in a meeting? Hit <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> from any app to instantly send MiniMe to sleep in the corner with zero interruptions.</p>
+      <code>RegisterHotKey()</code>
     </td>
   </tr>
 </table>
 
 ---
 
-## 🏗️ Architecture
+## 🧠 Under the Hood: Win32 & State Machine
 
 ```mermaid
-flowchart LR
-    subgraph Setup["🎨 Skin Pipeline (One-Time Setup)"]
-        Prompt["AI Prompt Generator\n(Chibi • Pixel • Cartoon)"] --> Img["User Uploads 4x2 PNG\n(#00FF00 Green Screen)"]
-        Img --> Chroma["Chroma Key Remover\n+ Green Spill Suppression"]
-        Chroma --> Slicer["4x2 Auto-Slicer\n(8 Animated Frames)"]
-    end
-
-    subgraph Runtime["⚡ .NET 8 WPF Runtime (~35MB RAM)"]
-        Loop["60fps Physics & State Loop"]
-        Win32["🪟 Native Win32 Interop\n(user32.dll P/Invoke)"]
-        Brain["🧠 BrainService\n(Offline JSON / Gemini / Groq)"]
-        Overlay["👻 Always-On-Top Transparent Overlay"]
-    end
-
-    Slicer --> Overlay
-    Loop --> Overlay
-    Win32 <--> Loop
-    Win32 --> Brain
-    Brain --> Overlay
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Walking : Random patrol
+    Walking --> Climbing : Found open window rect
+    Climbing --> Sitting : Perched on titlebar
+    Walking --> ChaosPush : Chaos Mode ON
+    Walking --> MouseThief : Cursor nearby
+    Idle --> Dragged : Mouse Down + Move
+    Walking --> Dragged : Mouse Down + Move
+    Dragged --> Falling : Mouse Release (Fling velocity)
+    Idle --> Hit : Quick Slap Click
+    Hit --> Falling : Launch Impulse + Gravity
+    Falling --> Idle : Taskbar Bounce Settled
+    Idle --> Sleeping : Ctrl + Shift + H (Boss Mode)
+    Sleeping --> Idle : Ctrl + Shift + H (Wake Up)
 ```
 
 <details>
-<summary><b>📂 Click to expand full C# .NET 8 project structure</b></summary>
+<summary><b>🔬 Inspect Native Win32 Interop &amp; Safety Guardrails</b></summary>
+
+MiniMe talks directly to Windows via zero-dependency P/Invoke (`src/MiniMe/Native/Win32Interop.cs`) with strict OS safety guardrails:
+- **Never touches system shell windows** (`Progman`, `WorkerW`, `Shell_TrayWnd`, `TaskManager`).
+- **Never moves maximized or fullscreen apps/games** (`IsZoomed(hwnd)` check).
+- **Zero admin privileges required** and **zero background telemetry**.
+
+```csharp
+// Example: Safe non-maximized window shove via native user32.dll
+[DllImport("user32.dll", SetLastError = true)]
+public static extern bool SetWindowPos(
+    IntPtr hWnd, IntPtr hWndInsertAfter,
+    int X, int Y, int cx, int cy, uint uFlags
+);
+```
+
+</details>
+
+<details>
+<summary><b>📂 Inspect Full C# .NET 8 Repository Tree</b></summary>
 
 ```text
 minime-pet/
+├── assets/
+│   ├── hero.svg                        # Custom 60fps animated hero banner
+│   ├── desktop-demo.svg                # Live animated Windows 11 chaos simulation
+│   └── chroma-pipeline.svg             # Animated Chroma Key laser-scan diagram
 ├── .github/
 │   └── workflows/
-│       └── release.yml                # Automated single-file Windows .exe build
+│       └── release.yml                 # Auto-builds standalone minime-windows-x64.exe
 ├── src/
 │   └── MiniMe/
-│       ├── MiniMe.csproj              # .NET 8 WPF + WinForms Tray (Zero external NuGet deps)
-│       ├── App.xaml / App.xaml.cs     # System Tray icon & Ctrl+Shift+H global hotkey
+│       ├── MiniMe.csproj               # .NET 8 WPF + WinForms Tray (Zero external NuGet)
+│       ├── App.xaml / App.xaml.cs      # System Tray menu & Ctrl+Shift+H global hotkey
 │       ├── Native/
-│       │   └── Win32Interop.cs        # P/Invoke bindings for user32.dll
+│       │   └── Win32Interop.cs         # Native user32.dll P/Invoke + OS safety guards
 │       ├── Engine/
-│       │   ├── SpriteProcessor.cs     # Chroma Key remover, 4x2 slicer & fallback sprite
-│       │   ├── PhysicsEngine.cs       # Gravity, bounce, slap launch & fling velocity
-│       │   ├── ChaosEngine.cs         # Window Climber, Pusher, Mouse Thief & Minimizer
-│       │   └── BrainService.cs        # Context-aware offline quips + Gemini/Groq API
+│       │   ├── SpriteProcessor.cs      # #00FF00 Chroma Key remover + 4x2 Auto-Slicer
+│       │   ├── PhysicsEngine.cs        # 60fps gravity, bounce, slap & fling physics
+│       │   ├── ChaosEngine.cs          # Climber, Window Pusher, Mouse Thief & Minimizer
+│       │   └── BrainService.cs         # Context-aware Offline JSON + Gemini/Groq AI
 │       ├── Models/
 │       │   ├── PetConfig.cs
 │       │   └── PetState.cs
 │       ├── Assets/
-│       │   └── quips.json             # Categorized Egyptian Arabic & English quips
+│       │   └── quips.json              # Categorized Egyptian Arabic & English quips
 │       └── Views/
-│           ├── PetWindow.xaml(.cs)    # Transparent Always-On-Top pet & speech bubble
-│           ├── SetupWindow.xaml(.cs)  # AI Prompt + Chroma Key Auto-Slicer Wizard
-│           └── SettingsWindow.xaml(.cs)
+│           ├── PetWindow.xaml(.cs)     # Transparent Always-On-Top overlay & chat bubble
+│           ├── SetupWindow.xaml(.cs)   # Style picker → AI Prompt → Chroma Key preview
+│           └── SettingsWindow.xaml(.cs)# Chaos toggles, API Key & language controls
 └── README.md
 ```
 
@@ -166,54 +198,49 @@ minime-pet/
 
 ---
 
-## 📦 Download & Install
+## 📦 Get MiniMe (Windows 10 / 11)
 
-### Option 1: Standalone Windows `.exe` (Zero Install)
-Download **`minime-windows-x64.exe`** directly from **[GitHub Releases](https://github.com/a1n2a3s6/minime-pet/releases)** and double-click to run!
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🚀 Option 1 — Standalone <code>.EXE</code> (Zero Install)</h3>
+      <p>Download the pre-compiled single-file executable directly from GitHub Releases and double-click to launch:</p>
+      <p>
+        <a href="https://github.com/a1n2a3s6/minime-pet/releases">
+          <img src="https://img.shields.io/badge/Download-minime--windows--x64.exe-10B981?style=for-the-badge&logo=windows&logoColor=white" alt="Download EXE" />
+        </a>
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🛠️ Option 2 — Build From Source (.NET 8 SDK)</h3>
 
-### Option 2: Build from Source (.NET 8 SDK)
 ```powershell
 git clone [https://github.com/a1n2a3s6/minime-pet.git](https://github.com/a1n2a3s6/minime-pet.git)
 cd minime-pet
 dotnet run --project src/MiniMe/MiniMe.csproj
 ```
 
+    </td>
+  </tr>
+</table>
+
 ---
 
-## ⌨️ Shortcuts & Controls
+## ⌨️ Controls & Shortcuts
 
-| Interaction | Action |
+| Gesture / Key | Effect |
 | :---: | :--- |
-| **Single Quick Click** | Slap MiniMe (launches with gravity, dizzy stars & sarcastic reply) |
-| **Click & Drag** | Pick MiniMe up by the collar and fling across the screen |
-| **Double Click** | Open mini chat bubble (AI Mode) or trigger a fresh context roast |
-| **Right Click / Tray Icon** | Open Skin Setup Wizard, Settings, or Summon to Center |
-| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> | **Boss / Focus Mode** — instant sleep & pause all Chaos |
-
----
-
-## 🗺️ Roadmap
-
-- [x] Native C# .NET 8 WPF transparent Always-On-Top pet with 60fps throw/slap physics
-- [x] Built-in AI 4×2 Sprite Prompt Generator + Chroma Key (`#00FF00`) Auto-Slicer
-- [x] Win32 API Window Climber, Window Pusher, Mouse Thief & Context-Aware Trolling
-- [x] Offline Egyptian Arabic / English quips + Optional Gemini Flash / Groq AI chat
-- [x] Global `Ctrl+Shift+H` Boss Mode + Automated single-file `.exe` GitHub Release
-- [ ] Multi-Pet Mode (spawn 2 MiniMes that argue with each other on your taskbar)
-- [ ] Optional retro sound effects pack (slap, boing, giggle)
-- [ ] Community Skin Marketplace (export/import `.minime` skin packs)
-
----
-
-## 📄 License
-
-Distributed under the **MIT License**. Free to use, customize, and share!
+| **Quick Single Click** | Slap MiniMe — launches diagonally with gravity, dizzy stars & sarcastic quip |
+| **Click & Drag** | Pick MiniMe up by the collar (`Dragged` pose) and fling across the screen |
+| **Double Click** | Open mini chat bubble (AI Mode) or trigger an instant context-aware roast |
+| **Right Click / Tray Icon** | Open Skin Setup Wizard, Settings, Toggle Chaos, or Summon to Center |
+| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd> | **Boss / Focus Mode** — instant corner sleep & pause all Win32 chaos |
 
 ---
 
 <div align="center">
 
-<h3>👨‍💻 Built by Anas Alhelaly</h3>
+<h3>👨‍💻 Engineered by Anas Alhelaly</h3>
 <p><em>Day 11 of my <strong>365 Projects in 365 Days</strong> GitHub Challenge</em></p>
 
 <p>
@@ -228,11 +255,8 @@ Distributed under the **MIT License**. Free to use, customize, and share!
   </a>
 </p>
 
-<p>⭐ <strong>If MiniMe made you laugh (or stole your mouse), drop a Star on the repo!</strong> ⭐</p>
+<p>⭐ <strong>If MiniMe made you laugh (or shoved your VS Code window), drop a Star on the repo!</strong> ⭐</p>
 
 <p><a href="#readme-top"><strong>⬆️ Back to Top</strong></a></p>
-
-<!-- ANIMATED WAVE FOOTER -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0EA5E9,50:10B981,100:111827&height=110&section=footer" width="100%" alt="Footer Wave" />
 
 </div>
