@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <AssemblyName>MiniMe</AssemblyName>
+    <RootNamespace>MiniMe</RootNamespace>
+    <Version>2.0.0</Version>
+    <Product>MiniMe Pet v2.0</Product>
+    <Description>Native .NET 8 WPF Windows Desktop Pet with Real Win32 Chaos Engine, Ultra-Fast Multimodal Screen Vision AI, and Borderless Dark Matte Fluent UI.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Prevent WinForms/GDI+ implicit global usings from clashing with WPF types -->
+    <Using Remove="System.Drawing" />
+    <Using Remove="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\quips.json" />
+    <Content Include="Assets\quips.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
