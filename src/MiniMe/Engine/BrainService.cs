@@ -31,7 +31,7 @@ public sealed class BrainService
 {
     private static readonly HttpClient SharedHttpClient = new()
     {
-        Timeout = TimeSpan.FromSeconds(10)
+        Timeout = TimeSpan.FromSeconds(20)
     };
 
     private static readonly JsonSerializerOptions JsonCaseInsensitive = new()
@@ -174,12 +174,19 @@ public sealed class BrainService
         return selected;
     }
 
+    private static string CleanApiKey(string rawKey)
+    {
+        return rawKey.Trim().Trim('"', '\'').Replace("\r", string.Empty).Replace("\n", string.Empty);
+    }
+
     /// <summary>
     /// Live connection & latency test used in Setup Wizard Step 3 and Settings.
+    /// Surfaces exact API error messages if the key or model is rejected.
     /// </summary>
     public async Task<ConnectionTestResult> TestConnectionAsync(AppSettings settings, CancellationToken ct = default)
     {
-        if (settings.AiProvider == AiProvider.None || string.IsNullOrWhiteSpace(settings.AiApiKey))
+        string cleanKey = CleanApiKey(settings.AiApiKey);
+        if (settings.AiProvider == AiProvider.None || string.IsNullOrWhiteSpace(cleanKey))
         {
             return new ConnectionTestResult(false, 0, "Enter a Gemini or Groq API key first.");
         }
@@ -187,37 +194,41 @@ public sealed class BrainService
         var sw = Stopwatch.StartNew();
         try
         {
-            string? reply = settings.AiProvider switch
+            (string? Text, string? Error) result = settings.AiProvider switch
             {
                 AiProvider.Gemini => await CallGeminiMultimodalAsync(
-                    settings.AiApiKey.Trim(),
+                    cleanKey,
                     settings.AiModel.Trim(),
-                    "Reply with valid JSON: {\"mood\":\"helpful\",\"category\":\"suggestion\",\"message\":\"OK\"}",
+                    "Reply with only the word OK.",
                     "ping",
-                    null,
+                    jpegBytes: null,
+                    expectJson: false,
                     ct),
                 AiProvider.Groq => await CallGroqMultimodalAsync(
-                    settings.AiApiKey.Trim(),
+                    cleanKey,
                     settings.AiModel.Trim(),
-                    "Reply with valid JSON: {\"mood\":\"helpful\",\"category\":\"suggestion\",\"message\":\"OK\"}",
+                    "Reply with only the word OK.",
                     "ping",
-                    null,
+                    jpegBytes: null,
                     ct),
-                _ => null
+                _ => (null, "Select Gemini or Groq first.")
             };
             sw.Stop();
 
-            if (!string.IsNullOrWhiteSpace(reply))
+            if (!string.IsNullOrWhiteSpace(result.Text))
             {
                 return new ConnectionTestResult(true, sw.ElapsedMilliseconds, $"✅ Ready in {sw.ElapsedMilliseconds}ms!");
             }
 
-            return new ConnectionTestResult(false, sw.ElapsedMilliseconds, "API returned an empty or unauthorized response.");
+            string errMsg = !string.IsNullOrWhiteSpace(result.Error)
+                ? result.Error
+                : "API returned an empty response.";
+            return new ConnectionTestResult(false, sw.ElapsedMilliseconds, $"❌ {errMsg}");
         }
         catch (Exception ex)
         {
             sw.Stop();
-            return new ConnectionTestResult(false, sw.ElapsedMilliseconds, $"Connection failed: {ex.Message}");
+            return new ConnectionTestResult(false, sw.ElapsedMilliseconds, $"❌ Connection failed: {ex.Message}");
         }
     }
 
@@ -231,7 +242,8 @@ public sealed class BrainService
         bool isAutoWatch,
         CancellationToken ct = default)
     {
-        if (settings.AiProvider == AiProvider.None || string.IsNullOrWhiteSpace(settings.AiApiKey) || snapshot is null)
+        string cleanKey = CleanApiKey(settings.AiApiKey);
+        if (settings.AiProvider == AiProvider.None || string.IsNullOrWhiteSpace(cleanKey) || snapshot is null)
         {
             string cat = DetectWindowCategory(snapshot?.ActiveWindowTitle ?? string.Empty);
             string offlineMsg = !string.IsNullOrWhiteSpace(userQuestion)
@@ -253,26 +265,27 @@ public sealed class BrainService
 
         try
         {
-            string? rawJson = settings.AiProvider switch
+            (string? Text, string? Error) result = settings.AiProvider switch
             {
                 AiProvider.Gemini => await CallGeminiMultimodalAsync(
-                    settings.AiApiKey.Trim(),
+                    cleanKey,
                     settings.AiModel.Trim(),
                     systemPrompt,
                     userPrompt,
                     snapshot.JpegBytes,
+                    expectJson: true,
                     ct),
                 AiProvider.Groq => await CallGroqMultimodalAsync(
-                    settings.AiApiKey.Trim(),
+                    cleanKey,
                     settings.AiModel.Trim(),
                     systemPrompt,
                     userPrompt,
                     snapshot.JpegBytes,
                     ct),
-                _ => null
+                _ => (null, null)
             };
 
-            VisionResponse? parsed = ParseStructuredResponse(rawJson);
+            VisionResponse? parsed = ParseStructuredResponse(result.Text);
             if (parsed is not null && !string.IsNullOrWhiteSpace(parsed.Message))
             {
                 return parsed;
@@ -359,15 +372,22 @@ public sealed class BrainService
         return sb.ToString();
     }
 
-    private static async Task<string?> CallGeminiMultimodalAsync(
+    private static async Task<(string? Text, string? Error)> CallGeminiMultimodalAsync(
         string apiKey,
         string model,
         string systemPrompt,
         string userPrompt,
         byte[]? jpegBytes,
+        bool expectJson,
         CancellationToken ct)
     {
         string effectiveModel = string.IsNullOrWhiteSpace(model) ? "gemini-2.5-flash" : model;
+        // Strip optional "models/" prefix if the user pasted it
+        if (effectiveModel.StartsWith("models/", StringComparison.OrdinalIgnoreCase))
+        {
+            effectiveModel = effectiveModel["models/".Length..];
+        }
+
         string url = $"https://generativelanguage.googleapis.com/v1beta/models/{Uri.EscapeDataString(effectiveModel)}:generateContent?key={Uri.EscapeDataString(apiKey)}";
 
         var userParts = new List<object> { new { text = userPrompt } };
@@ -375,17 +395,32 @@ public sealed class BrainService
         {
             userParts.Add(new
             {
-                inline_data = new
+                inlineData = new
                 {
-                    mime_type = "image/jpeg",
+                    mimeType = "image/jpeg",
                     data = Convert.ToBase64String(jpegBytes)
                 }
             });
         }
 
+        // Disable internal thinking budget on Gemini 2.5+ so maxOutputTokens isn't consumed by hidden thoughts
+        var genConfig = new Dictionary<string, object>
+        {
+            ["temperature"] = 0.7,
+            ["maxOutputTokens"] = expectJson ? 320 : 64
+        };
+        if (expectJson)
+        {
+            genConfig["responseMimeType"] = "application/json";
+        }
+        if (effectiveModel.Contains("2.5", StringComparison.OrdinalIgnoreCase))
+        {
+            genConfig["thinkingConfig"] = new { thinkingBudget = 0 };
+        }
+
         var payload = new
         {
-            system_instruction = new
+            systemInstruction = new
             {
                 parts = new[] { new { text = systemPrompt } }
             },
@@ -397,12 +432,7 @@ public sealed class BrainService
                     parts = userParts
                 }
             },
-            generationConfig = new
-            {
-                temperature = 0.7,
-                maxOutputTokens = 160,
-                responseMimeType = "application/json"
-            }
+            generationConfig = genConfig
         };
 
         using var request = new HttpRequestMessage(HttpMethod.Post, url)
@@ -411,27 +441,37 @@ public sealed class BrainService
         };
 
         using HttpResponseMessage response = await SharedHttpClient.SendAsync(request, ct);
+        string body = await response.Content.ReadAsStringAsync(ct);
+
         if (!response.IsSuccessStatusCode)
         {
-            return null;
+            return (null, ExtractApiErrorMessage((int)response.StatusCode, body));
         }
 
-        string body = await response.Content.ReadAsStringAsync(ct);
         using JsonDocument doc = JsonDocument.Parse(body);
         if (doc.RootElement.TryGetProperty("candidates", out JsonElement candidates) &&
             candidates.GetArrayLength() > 0 &&
             candidates[0].TryGetProperty("content", out JsonElement content) &&
             content.TryGetProperty("parts", out JsonElement parts) &&
-            parts.GetArrayLength() > 0 &&
-            parts[0].TryGetProperty("text", out JsonElement textElem))
+            parts.GetArrayLength() > 0)
         {
-            return textElem.GetString();
+            foreach (JsonElement part in parts.EnumerateArray())
+            {
+                if (part.TryGetProperty("text", out JsonElement textElem))
+                {
+                    string? text = textElem.GetString();
+                    if (!string.IsNullOrWhiteSpace(text))
+                    {
+                        return (text, null);
+                    }
+                }
+            }
         }
 
-        return null;
+        return (null, "Gemini returned no text parts (try gemini-2.5-flash or gemini-2.0-flash).");
     }
 
-    private static async Task<string?> CallGroqMultimodalAsync(
+    private static async Task<(string? Text, string? Error)> CallGroqMultimodalAsync(
         string apiKey,
         string model,
         string systemPrompt,
@@ -459,12 +499,12 @@ public sealed class BrainService
             userContent = userPrompt;
         }
 
+        // Omit strict response_format=json_object because Groq vision endpoints can reject it on multimodal messages
         var payload = new
         {
             model = effectiveModel,
             temperature = 0.7,
-            max_tokens = 160,
-            response_format = new { type = "json_object" },
+            max_tokens = 256,
             messages = new object[]
             {
                 new { role = "system", content = systemPrompt },
@@ -479,22 +519,54 @@ public sealed class BrainService
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
         using HttpResponseMessage response = await SharedHttpClient.SendAsync(request, ct);
+        string body = await response.Content.ReadAsStringAsync(ct);
+
         if (!response.IsSuccessStatusCode)
         {
-            return null;
+            return (null, ExtractApiErrorMessage((int)response.StatusCode, body));
         }
 
-        string body = await response.Content.ReadAsStringAsync(ct);
         using JsonDocument doc = JsonDocument.Parse(body);
         if (doc.RootElement.TryGetProperty("choices", out JsonElement choices) &&
             choices.GetArrayLength() > 0 &&
             choices[0].TryGetProperty("message", out JsonElement message) &&
             message.TryGetProperty("content", out JsonElement contentElem))
         {
-            return contentElem.GetString();
+            return (contentElem.GetString(), null);
         }
 
-        return null;
+        return (null, "Groq returned an empty choices array.");
+    }
+
+    private static string ExtractApiErrorMessage(int statusCode, string body)
+    {
+        try
+        {
+            using JsonDocument doc = JsonDocument.Parse(body);
+            if (doc.RootElement.TryGetProperty("error", out JsonElement err))
+            {
+                if (err.ValueKind == JsonValueKind.Object &&
+                    err.TryGetProperty("message", out JsonElement msgElem))
+                {
+                    string? msg = msgElem.GetString();
+                    if (!string.IsNullOrWhiteSpace(msg))
+                    {
+                        return $"HTTP {statusCode}: {msg}";
+                    }
+                }
+                else if (err.ValueKind == JsonValueKind.String)
+                {
+                    return $"HTTP {statusCode}: {err.GetString()}";
+                }
+            }
+        }
+        catch
+        {
+            // Ignore JSON parse error on non-JSON error pages
+        }
+
+        string snippet = body.Length > 140 ? body[..140] : body;
+        return $"HTTP {statusCode}: {snippet}";
     }
 
     private static VisionResponse? ParseStructuredResponse(string? raw)
